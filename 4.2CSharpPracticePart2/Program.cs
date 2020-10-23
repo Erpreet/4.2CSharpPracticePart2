@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _4._2CSharpPracticePart2
 {
@@ -6,27 +7,28 @@ namespace _4._2CSharpPracticePart2
     {
         static void Main(string[] args)
         {
-            Teacher mathTeacher = new Teacher("Bob", "Jones", new Classroom(101));
+            Student theStudent = new Student("Test", "McTest");
+            Classroom theRoom = new Classroom(101);
 
-            Student joe = new Student("Joe", "Smith");
-            Student sally = new Student("Sally", "Howard");
+            // Static method example.
+            Student.Sleep();
 
-            mathTeacher.Class.Add(joe);
-            mathTeacher.Class.Add(sally);
+            Teacher theTeacher = new Teacher("Teacher", "McTest", theRoom);
 
-            Console.WriteLine(joe);
-            Console.WriteLine(sally);
+            //List<Student> someStudents = new List<Student>();
+            theTeacher.Class[0] = theStudent;
 
-            mathTeacher.AssignHomework();
+            //someStudents[0].DoHomework();
+            theTeacher.Class[0].DoHomework();
 
-            Console.WriteLine(joe);
-            Console.WriteLine(sally);
 
-            joe.Sleep();
-            joe.Sleep();
-            joe.Sleep();
-            Console.WriteLine(joe);
+            //theRoom.RoomNumber
+            //theTeacher.Room.RoomNumber
+
+
 
         }
+
+
     }
 }

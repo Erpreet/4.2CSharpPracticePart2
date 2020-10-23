@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace _4._2CSharpPracticePart2
 {
-    class Student
+    class Student : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
 
         private int _energyLevel;
-        private int EnergyLevel
+        public int EnergyLevel
         {
             get
             {
                 return _energyLevel;
             }
-            set
+            private set
             {
                 if (value < 0)
                 {
@@ -26,13 +25,13 @@ namespace _4._2CSharpPracticePart2
             }
         }
         private int _stressLevel;
-        private int StressLevel
+        public int StressLevel
         {
             get
             {
                 return _stressLevel;
             }
-            set
+            private set
             {
                 if (value > 100)
                 {
@@ -47,14 +46,14 @@ namespace _4._2CSharpPracticePart2
                 {
                     _stressLevel = value;
                 }
-
             }
         }
 
-        public void Sleep()
+        // Static methods cannot reference state properties, but if they don't, they can be run on the class name instead of on an instance.
+        public static void Sleep()
         {
-            EnergyLevel += 25;
-            StressLevel -= 30;
+            //EnergyLevel += 25;
+            //StressLevel -= 30;
         }
 
         public void DoHomework()
